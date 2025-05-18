@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Payment - ZO SHOP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/shared/general.css">
+  <link rel="stylesheet" href="styles/pages/checkout/checkout-header.css">
+  <link rel="stylesheet" href="styles/pages/payment.css">
+</head>
+
+<body>
+  <div class="checkout-header">
+    <div class="header-content">
+      <div class="checkout-header-left-section">
+        <a href="amazon.html" class="shop-logo">
+          ZO<span>SHOP</span>
+        </a>
+        <a href="amazon.html" class="mobile-logo">
+          ZO<span>S</span>
+        </a>
+      </div>
+
+      <div class="checkout-header-middle-section">
+        Home Page (<a class="return-to-home-link" href="amazon.html"></a>)
+      </div>
+      <div class="checkout-header-right-section">
+        <img src="images/icons/checkout-lock-icon.png">
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="payment-container">
+      <h1>Payment Details</h1>
+
+      <div class="payment-form-container">
+        <div class="form-group">
+          <label for="cardName">Name on Card</label>
+          <input type="text" id="cardName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cardNumber">Card Number</label>
+          <input type="text" id="cardNumber" required maxlength="16">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="expiryDate">Expiry Date</label>
+            <input type="text" id="expiryDate" placeholder="MM/YY" required maxlength="5">
+          </div>
+
+          <div class="form-group">
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" required maxlength="3">
+          </div>
+        </div>
+
+        <button class="pay-button" type="button">
+          Complete Purchase
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    // Handle payment submission
+    document.querySelector('.pay-button').addEventListener('click', () => {
+      const cardName = document.getElementById('cardName').value;
+      const cardNumber = document.getElementById('cardNumber').value;
+      const expiryDate = document.getElementById('expiryDate').value;
+      const cvv = document.getElementById('cvv').value;
+
+      if (!cardName || !cardNumber || !expiryDate || !cvv) {
+        alert('Please fill in all payment details');
+        return;
+      }
+
+      // Save card details to session storage (will be cleared when browser closes)
+      const cardDetails = {
+        cardName,
+        cardNumber,
+        expiryDate,
+        cvv
+      };
+      sessionStorage.setItem('cardDetails', JSON.stringify(cardDetails));
+
+      // Redirect to delivery details page
+      window.location.href = 'delivery-details.html';
+    });
+
+    // Update the number of items in the header
+    const cartData = JSON.parse(localStorage.getItem('cartData'));
+    if (cartData && cartData.cart) {
+      const itemCount = cartData.cart.reduce((total, item) => total + item.quantity, 0);
+      document.querySelector('.return-to-home-link').textContent = `${itemCount} items`;
+    }
+  </script>
+</body>
+
+</html>

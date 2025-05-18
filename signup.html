@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sign Up - SW Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/shared/general.css">
+  <link rel="stylesheet" href="styles/pages/auth.css">
+</head>
+
+<body>
+  <div class="auth-container">
+    <div class="auth-box">
+      <h1>Sign Up</h1>
+      <form class="auth-form js-signup-form">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" class="form-control js-name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" class="form-control js-email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" class="form-control js-password" required>
+        </div>
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password</label>
+          <input type="password" id="confirm-password" class="form-control js-confirm-password" required>
+        </div>
+        <button type="submit" class="auth-button">Sign Up</button>
+      </form>
+      <p class="auth-link">
+        Already have an account? <a href="login.html">Login</a>
+      </p>
+    </div>
+  </div>
+  <script type="module" src="scripts/auth/signup.js"></script>
+</body>
+
+</html>

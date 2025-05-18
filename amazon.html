@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>SW Project</title>
+
+  <!-- This code is needed for responsive design to work.
+      (Responsive design = make the website look good on
+      smaller screen sizes like a phone or a tablet). -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Load a font called Roboto from Google Fonts. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Here are the CSS files for this page. -->
+  <link rel="stylesheet" href="styles/shared/general.css">
+  <link rel="stylesheet" href="styles/shared/amazon-header.css">
+  <link rel="stylesheet" href="styles/shared/nav-menu.css">
+  <link rel="stylesheet" href="styles/shared/footer.css">
+  <link rel="stylesheet" href="styles/shared/shipping-header.css">
+  <link rel="stylesheet" href="styles/pages/amazon.css">
+</head>
+
+<body>
+  <div class="js-sticky-header-container"></div>
+
+  <div class="js-amazon-header-container">
+    <!-- Amazon header will be loaded here -->
+  </div>
+
+  <div class="nav-menu">
+    <div class="nav-content">
+      <a href="#" class="nav-item active" data-category="all">All</a>
+      <a href="#" class="nav-item" data-category="best-sellers">Best Sellers</a>
+      <a href="#" class="nav-item" data-category="flash-sales">Flash Sales</a>
+      <a href="#" class="nav-item" data-category="todays-deals">Today's Deals</a>
+      <a href="#" class="nav-item" data-category="new-releases">New Releases</a>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="categories-grid js-categories-grid">
+      <!-- Categories will be loaded here -->
+    </div>
+
+    <div class="products-grid js-products-grid">
+      <!-- Products will be loaded here -->
+    </div>
+  </div>
+
+  <div class="js-footer-container">
+    <!-- Footer will be loaded here -->
+  </div>
+
+  <!-- Modals -->
+  <div class="modal-overlay" id="help-center-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('help-center')">&times;</button>
+      <h2 class="modal-title">Help Center</h2>
+      <div class="modal-section">
+        <h3>Frequently Asked Questions</h3>
+        <p class="modal-text">Find answers to common questions about orders, shipping, returns, and more.</p>
+      </div>
+      <div class="modal-section">
+        <h3>Order Issues</h3>
+        <p class="modal-text">• Track your order status<br>• Report missing or damaged items<br>• Cancel an order<br>•
+          Request a refund</p>
+      </div>
+      <div class="modal-section">
+        <h3>Account & Payment</h3>
+        <p class="modal-text">• Update account information<br>• Manage payment methods<br>• View order history<br>•
+          Reset password</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="returns-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('returns')">&times;</button>
+      <h2 class="modal-title">Returns Policy</h2>
+      <div class="modal-section">
+        <h3>30-Day Return Policy</h3>
+        <p class="modal-text">We offer a 30-day return window for most items. Items must be unused and in original
+          packaging.</p>
+      </div>
+      <div class="modal-section">
+        <h3>How to Return</h3>
+        <p class="modal-text">1. Go to Your Orders<br>2. Select the item to return<br>3. Choose a return reason<br>4.
+          Print return label<br>5. Drop off at any authorized location</p>
+      </div>
+      <div class="modal-section">
+        <h3>Refund Process</h3>
+        <p class="modal-text">Refunds are typically processed within 3-5 business days after we receive the returned
+          item.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="shipping-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('shipping')">&times;</button>
+      <h2 class="modal-title">Shipping Information</h2>
+      <div class="modal-section">
+        <h3>Shipping Options</h3>
+        <p class="modal-text">• Standard Shipping (3-5 business days)<br>• Express Shipping (2-3 business days)<br>•
+          Next Day Delivery (order by 2 PM)</p>
+      </div>
+      <div class="modal-section">
+        <h3>International Shipping</h3>
+        <p class="modal-text">We ship to over 100 countries. International delivery times vary by location.</p>
+      </div>
+      <div class="modal-section">
+        <h3>Tracking</h3>
+        <p class="modal-text">Track your package at any time through your account or using the tracking number provided
+          in your shipping confirmation email.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="contact-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('contact')">&times;</button>
+      <h2 class="modal-title">Contact Us</h2>
+      <div class="modal-section">
+        <h3>Customer Support</h3>
+        <p class="modal-text">24/7 Support Available<br>Email: support@zoshop.com<br>Phone: 1-800-ZO-SHOP</p>
+      </div>
+      <div class="modal-section">
+        <h3>Business Hours</h3>
+        <p class="modal-text">Monday - Friday: 8 AM - 8 PM EST<br>Saturday - Sunday: 9 AM - 6 PM EST</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="privacy-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('privacy')">&times;</button>
+      <h2 class="modal-title">Privacy Policy</h2>
+      <div class="modal-section">
+        <h3>Data Collection</h3>
+        <p class="modal-text">We collect information to improve your shopping experience and provide personalized
+          services.</p>
+      </div>
+      <div class="modal-section">
+        <h3>Data Protection</h3>
+        <p class="modal-text">Your data is encrypted and stored securely. We never share your personal information with
+          third parties without your consent.</p>
+      </div>
+      <div class="modal-section">
+        <h3>Your Rights</h3>
+        <p class="modal-text">You have the right to access, modify, or delete your personal data at any time.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="terms-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('terms')">&times;</button>
+      <h2 class="modal-title">Terms of Service</h2>
+      <div class="modal-section">
+        <h3>User Agreement</h3>
+        <p class="modal-text">By using our service, you agree to these terms and conditions. Please read them carefully.
+        </p>
+      </div>
+      <div class="modal-section">
+        <h3>Account Responsibilities</h3>
+        <p class="modal-text">You are responsible for maintaining the confidentiality of your account and password.</p>
+      </div>
+      <div class="modal-section">
+        <h3>Prohibited Activities</h3>
+        <p class="modal-text">Users may not engage in any fraudulent activity or abuse of our services.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="cookies-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('cookies')">&times;</button>
+      <h2 class="modal-title">Cookie Settings</h2>
+      <div class="modal-section">
+        <h3>Essential Cookies</h3>
+        <p class="modal-text">Required for basic site functionality. These cannot be disabled.</p>
+      </div>
+      <div class="modal-section">
+        <h3>Analytics Cookies</h3>
+        <p class="modal-text">Help us improve our website by collecting anonymous usage information.</p>
+      </div>
+      <div class="modal-section">
+        <h3>Marketing Cookies</h3>
+        <p class="modal-text">Used to deliver personalized ads and content based on your interests.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="security-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('security')">&times;</button>
+      <h2 class="modal-title">Security</h2>
+      <div class="modal-section">
+        <h3>Secure Shopping</h3>
+        <p class="modal-text">All transactions are encrypted using SSL technology to protect your personal and financial
+          information.</p>
+      </div>
+      <div class="modal-section">
+        <h3>Payment Security</h3>
+        <p class="modal-text">We use industry-standard security measures to protect your payment information.</p>
+      </div>
+      <div class="modal-section">
+        <h3>Fraud Prevention</h3>
+        <p class="modal-text">We actively monitor transactions to prevent fraudulent activities and protect our
+          customers.</p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="scripts/amazon.js"></script>
+  <script>
+    function openModal(id) {
+      document.getElementById(`${id}-modal`).classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(id) {
+      document.getElementById(`${id}-modal`).classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Close modal when clicking outside
+    document.querySelectorAll('.modal-overlay').forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+      });
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay').forEach(modal => {
+          modal.classList.remove('active');
+        });
+        document.body.style.overflow = 'auto';
+      }
+    });
+  </script>
+</body>
+
+</html>

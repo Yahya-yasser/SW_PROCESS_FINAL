@@ -1,0 +1,34 @@
+{
+  "categories": [
+    {
+      "id": "electronics",
+      "name": "Electronics",
+      "description": "Latest gadgets and electronic devices",
+      "image": "images/categories/electronics.jpg"
+    },
+    {
+      "id": "books",
+      "name": "Books",
+      "description": "Books across all genres",
+      "image": "images/categories/books.jpg"
+    },
+    {
+      "id": "sports",
+      "name": "Sports & Outdoors",
+      "description": "Sports equipment and outdoor gear",
+      "image": "images/categories/sports.jpg"
+    },
+    {
+      "id": "clothing",
+      "name": "Clothing",
+      "description": "Fashion for everyone",
+      "image": "images/categories/clothing.jpg"
+    },
+    {
+      "id": "home",
+      "name": "Home & Kitchen",
+      "description": "Everything for your home",
+      "image": "images/categories/home.jpg"
+    }
+  ]
+}

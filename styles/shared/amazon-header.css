@@ -1,0 +1,170 @@
+.amazon-header {
+  background-color: white;
+  color: black;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.header-left-section {
+  width: 180px;
+}
+
+.shop-logo {
+  color: #FFD814;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+}
+
+.shop-logo span {
+  color: black;
+}
+
+.shop-logo:hover {
+  opacity: 0.9;
+}
+
+.mobile-logo {
+  display: none;
+  font-size: 20px;
+}
+
+.amazon-header-middle-section {
+  flex: 1;
+  max-width: 850px;
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+}
+
+.search-bar {
+  flex: 1;
+  max-width: 600px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 16px;
+  background-color: #232f3e;
+  color: white;
+}
+
+.search-bar::placeholder {
+  color: #999;
+}
+
+.search-button {
+  background-color: #FFD814;
+  border: none;
+  width: 45px;
+  height: 40px;
+  border-radius: 4px;
+  margin-left: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-button:hover {
+  background-color: #f3a847;
+}
+
+.search-icon {
+  width: 22px;
+}
+
+.amazon-header-right-section {
+  display: flex;
+  align-items: center;
+}
+
+.orders-link {
+  color: black;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.returns-text {
+  display: block;
+  font-size: 13px;
+}
+
+.orders-text {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.cart-link {
+  color: black;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.cart-icon {
+  width: 30px;
+}
+
+.cart-text {
+  margin-left: 5px;
+  font-size: 15px;
+  font-weight: 700;
+  color: black;
+}
+
+.cart-quantity {
+  color: #f08804;
+  font-size: 16px;
+  font-weight: 700;
+  margin-left: 5px;
+}
+
+.js-user-info {
+  color: #000;
+}
+
+.welcome-text,
+.auth-button {
+  color: #000 !important;
+}
+
+@media (max-width: 800px) {
+  .amazon-header-right-section {
+    display: none;
+  }
+}
+
+@media (max-width: 575px) {
+  .header-left-section {
+    width: auto;
+  }
+
+  .shop-logo {
+    display: none;
+  }
+
+  .mobile-logo {
+    display: block;
+  }
+
+  .amazon-header-middle-section {
+    margin: 0 5px;
+  }
+
+  .search-bar {
+    font-size: 14px;
+  }
+}

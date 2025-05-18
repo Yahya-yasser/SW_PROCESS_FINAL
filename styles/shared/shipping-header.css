@@ -1,0 +1,89 @@
+.shipping-header {
+  background-color: #232f3e;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.shipping-text {
+  display: inline-block;
+  animation: slide 20s linear infinite;
+  white-space: nowrap;
+  padding-left: 100%;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.shipping-amount {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.sticky-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #232f3e;
+  padding: 8px 0;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.shipping-text {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-block;
+  animation: slide 20s linear infinite;
+  white-space: nowrap;
+  padding-left: 100%;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.shipping-amount {
+  color: #ffd814;
+  font-weight: bold;
+}
+
+/* Add padding to body to prevent content from hiding under sticky header */
+body {
+  padding-top: 40px;
+}
+
+/* Remove fixed positioning from other elements */
+.amazon-header {
+  background-color: white;
+  position: relative;
+}
+
+.nav-menu {
+  background-color: white;
+  position: relative;
+}
+
+/* Reset main content margin */
+.main {
+  margin-top: 20px;
+}

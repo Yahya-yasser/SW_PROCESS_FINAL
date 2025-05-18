@@ -1,0 +1,138 @@
+.delivery-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.delivery-container h1 {
+  color: #232f3e;
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.delivery-form-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+.section {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+.section h2 {
+  color: #232f3e;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  border-color: #007185;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 113, 133, 0.2);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.payment-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.payment-option:hover {
+  background-color: #f7fafa;
+}
+
+.payment-option input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+}
+
+.payment-option label {
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+}
+
+.confirm-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #ffd814;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 20px;
+}
+
+.confirm-button:hover {
+  background-color: #f7ca00;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .delivery-container {
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .delivery-form-container {
+    padding: 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .section h2 {
+    font-size: 18px;
+  }
+}

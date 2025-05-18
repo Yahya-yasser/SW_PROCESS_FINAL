@@ -1,0 +1,132 @@
+.otp-container {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 20px;
+}
+
+.otp-box {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  text-align: center;
+}
+
+.otp-box h1 {
+  color: #232f3e;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.info-text {
+  color: #565656;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+#userPhone {
+  font-weight: 500;
+  color: #232f3e;
+}
+
+.otp-input-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.otp-input {
+  width: 45px;
+  height: 45px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.otp-input:focus {
+  border-color: #007185;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 113, 133, 0.2);
+}
+
+.timer {
+  color: #565656;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+#countdown {
+  font-weight: 500;
+  color: #232f3e;
+}
+
+.verify-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #ffd814;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-bottom: 20px;
+}
+
+.verify-button:hover:not(:disabled) {
+  background-color: #f7ca00;
+}
+
+.verify-button:disabled {
+  background-color: #f7f7f7;
+  cursor: not-allowed;
+  color: #999;
+}
+
+.resend-text {
+  font-size: 14px;
+  color: #565656;
+}
+
+.resend-link {
+  color: #007185;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.resend-link:hover {
+  color: #004b63;
+  text-decoration: underline;
+}
+
+#resendButton {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .otp-container {
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .otp-box {
+    padding: 20px;
+  }
+
+  .otp-input-container {
+    gap: 8px;
+  }
+
+  .otp-input {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}

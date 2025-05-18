@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>OTP Verification - Amazon Clone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/shared/general.css">
+  <link rel="stylesheet" href="styles/pages/otp-verification.css">
+</head>
+
+<body>
+  <div class="otp-container">
+    <div class="otp-box">
+      <h1>Verify Your Phone Number</h1>
+      <p class="info-text">We've sent a verification code to <span id="userPhone"></span></p>
+
+      <div class="otp-input-container">
+        <input type="text" maxlength="1" class="otp-input" autofocus>
+        <input type="text" maxlength="1" class="otp-input">
+        <input type="text" maxlength="1" class="otp-input">
+        <input type="text" maxlength="1" class="otp-input">
+        <input type="text" maxlength="1" class="otp-input">
+        <input type="text" maxlength="1" class="otp-input">
+      </div>
+
+      <p class="timer">Code expires in: <span id="countdown">02:00</span></p>
+
+      <button id="verifyButton" class="verify-button" disabled>
+        Verify Code
+      </button>
+
+      <p class="resend-text">
+        Didn't receive the code?
+        <a href="#" id="resendButton" class="resend-link">Resend Code</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // Display user's phone number
+    const orderData = JSON.parse(sessionStorage.getItem('orderData'));
+    if (orderData && orderData.deliveryDetails.phone) {
+      const phone = orderData.deliveryDetails.phone;
+      const maskedPhone = phone.slice(-4).padStart(phone.length, '*');
+      document.getElementById('userPhone').textContent = maskedPhone;
+    }
+
+    // Handle OTP input
+    const otpInputs = document.querySelectorAll('.otp-input');
+    const verifyButton = document.getElementById('verifyButton');
+
+    otpInputs.forEach((input, index) => {
+      input.addEventListener('input', (e) => {
+        if (e.target.value.length === 1) {
+          if (index < otpInputs.length - 1) {
+            otpInputs[index + 1].focus();
+          }
+        }
+
+        // Enable verify button if all inputs are filled
+        const isComplete = Array.from(otpInputs).every(input => input.value.length === 1);
+        verifyButton.disabled = !isComplete;
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && !e.target.value && index > 0) {
+          otpInputs[index - 1].focus();
+        }
+      });
+    });
+
+    // Countdown timer
+    let timeLeft = 120; // 2 minutes in seconds
+    const countdownElement = document.getElementById('countdown');
+    const resendButton = document.getElementById('resendButton');
+
+    function updateTimer() {
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      countdownElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+      if (timeLeft === 0) {
+        resendButton.style.opacity = '1';
+        resendButton.style.pointerEvents = 'auto';
+        return;
+      }
+
+      timeLeft--;
+      setTimeout(updateTimer, 1000);
+    }
+
+    updateTimer();
+
+    // Handle verification
+    verifyButton.addEventListener('click', () => {
+      const otp = Array.from(otpInputs).map(input => input.value).join('');
+      // For demo purposes, any 6-digit code works
+      if (otp.length === 6) {
+        // Save verification status
+        const orderData = JSON.parse(sessionStorage.getItem('orderData'));
+        orderData.isVerified = true;
+        sessionStorage.setItem('orderData', JSON.stringify(orderData));
+
+        // Redirect to order confirmation
+        window.location.href = 'order-confirmation.html';
+      }
+    });
+
+    // Handle resend
+    resendButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (timeLeft === 0) {
+        // Reset timer
+        timeLeft = 120;
+        updateTimer();
+        resendButton.style.opacity = '0.5';
+        resendButton.style.pointerEvents = 'none';
+
+        // Clear inputs
+        otpInputs.forEach(input => input.value = '');
+        verifyButton.disabled = true;
+        otpInputs[0].focus();
+      }
+    });
+  </script>
+</body>
+
+</html>
